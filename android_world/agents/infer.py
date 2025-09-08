@@ -290,15 +290,28 @@ class Gpt4Wrapper(LlmWrapper, MultimodalLlmWrapper):
 
     payload = {
         'model': self.model,
-        'temperature': self.temperature,
+        'temperature': 1,
         'messages': [{
             'role': 'user',
             'content': [
                 {'type': 'text', 'text': text_prompt},
             ],
         }],
-        'max_tokens': 1000,
+        'max_completion_tokens': 2000,
     }
+
+
+    # payload = {
+    #     'model': self.model,
+    #     'temperature': self.temperature,
+    #     'messages': [{
+    #         'role': 'user',
+    #         'content': [
+    #             {'type': 'text', 'text': text_prompt},
+    #         ],
+    #     }],
+    #     'max_completion_tokens': 1000,
+    # }
 
     # Gpt-4v supports multiple images, just need to insert them in the content
     # list.

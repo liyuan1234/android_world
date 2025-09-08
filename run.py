@@ -172,9 +172,22 @@ def _get_agent(
     )
   # GPT.
   elif _AGENT_NAME.value == 't3a_gpt4':
-    agent = t3a.T3A(env, infer.Gpt4Wrapper('gpt-4-turbo-2024-04-09'))
+    # agent = t3a.T3A(env, infer.Gpt4Wrapper('gpt-4-turbo-2024-04-09'))
+    print('using gpt 5 instead of gpt-4-turbo-2024')
+    agent = t3a.T3A(env, infer.Gpt4Wrapper('gpt-5-nano'))
+
   elif _AGENT_NAME.value == 'm3a_gpt4v':
-    agent = m3a.M3A(env, infer.Gpt4Wrapper('gpt-4-turbo-2024-04-09'))
+    # agent = m3a.M3A(env, infer.Gpt4Wrapper('gpt-4-turbo-2024-04-09'))
+    agent = m3a.M3A(env, infer.Gpt4Wrapper('gpt-5-nano'))
+    print('using gpt 5 instead of gpt-4-turbo-2024')
+  elif _AGENT_NAME.value == 'gpt_5':
+    agent = m3a.M3A(env, infer.Gpt4Wrapper('gpt-5'))
+  elif _AGENT_NAME.value == 'gpt_5_mini':
+    agent = m3a.M3A(env, infer.Gpt4Wrapper('gpt-5-mini'))
+  elif _AGENT_NAME.value == 'gpt_5_nano':
+    agent = m3a.M3A(env, infer.Gpt4Wrapper('gpt-5-nano'))        
+
+
   # SeeAct.
   elif _AGENT_NAME.value == 'seeact':
     agent = seeact.SeeAct(env)

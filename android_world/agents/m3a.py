@@ -439,6 +439,7 @@ Action: {{"action_type": "status", "goal_status": "infeasible"}}"""
     # If the output is not in the right format, add it to step summary which
     # will be passed to next step and return.
     if (not reason) or (not action):
+      print(f'response:{raw_response.text}')
       logging.info('Action prompt output is not in the correct format.')
       step_data['summary'] = (
           'Output for action selection is not in the correct format, so no'
