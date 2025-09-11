@@ -1,2 +1,0 @@
-export GRPC_VERBOSITY=NONE
-export GRPC_TRACE=""
